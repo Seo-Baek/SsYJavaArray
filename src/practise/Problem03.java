@@ -31,7 +31,7 @@ public class Problem03 {
 		int[] tot = new int[student];
 		float[] avg = new float[student];
 		String[] score = new String[student];
-		
+		int[] rank = new int[student];
 		for(int i = 0; i < student; i++) {
 			tot[i] = kor[i] + eng[i] + mat[i];
 			avg[i] = tot[i]/3.0f;
@@ -54,10 +54,33 @@ public class Problem03 {
 				
 			}
 			
+			rank[i] = tot[i];
+		}
+		
+		int temp = 0;
+		for(int i = 0; i < student; i++) {
+			for(int j = i+1; j < student; j++) {
+				if(rank[i] < rank[j]) {
+					temp = rank[i];
+					rank[i] = rank[j];
+					rank[j] = temp;
+				}
+			}
+		
+		
 		}
 		
 		
-		
+		int[] rank1 = new int[student];
+		for(int i = 0; i < student; i++) {
+			for(int j = 0; j < student; j++) {
+				if(tot[i] == (rank[j])) {
+					rank1[i] = (j+1);
+			}
+			
+			}
+			
+		}
 		
 		
 		for(int i = 0; i < student; i++) {
@@ -66,7 +89,7 @@ public class Problem03 {
 			System.out.print("총점 : " + tot[i] + "점" + "\t");
 			System.out.printf("평균 : %.2f점\t", avg[i]);
 			System.out.print("학점 : " + score[i] + "\t");
-			System.out.println("순위 : " + "위");
+			System.out.println("순위 : " + rank1[i] + "위");
 		}
 		
 		
