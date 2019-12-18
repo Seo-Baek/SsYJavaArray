@@ -89,16 +89,13 @@ public class Problem03 {
 			System.out.print("총점 : " + tot[i] + "점" + "\t");
 			System.out.printf("평균 : %.2f점\t", avg[i]);
 			System.out.print("학점 : " + score[i] + "\t");
-			System.out.println("순위 : " + rank1[i] + "위");
+			System.out.println("순위 : " + rank1[i] + "등");
 		}
 		
 		
 	
 		
-	
-		
-		
-		
+		sc.close();
 		
 	}
 

@@ -13,11 +13,22 @@ public class Problem01 {
 		
 		System.out.print("배열 크기 : ");
 		int arr[] = new int[sc.nextInt()];
+		int max = -999;
+		int min = 999;
 		
 		for(int i = 0; i < arr.length; i++) {
 			System.out.print((i+1) + "번째 값 입력 : ");
 			arr[i] = sc.nextInt();
+			if(arr[i] < min) {
+				min = arr[i];
+			}
+			if(arr[i] > max) {
+				max = arr[i];
+			}
 		}
+		System.out.println("max : " + max + " min : " + min);
+		
+		sc.close();
 		
 //		int temp = 0;
 //		for(int i = 0; i < arr.length; i++) {
@@ -31,18 +42,8 @@ public class Problem01 {
 //		}//외부 for문
 //		
 //		System.out.println("max : " + arr[0] + ", min : " + arr[(arr.length-1)]);
-		int max = -999;
-		int min = 999;
-		for(int i = 0; i < arr.length; i++) {
-			if(arr[i] < min) {
-				min = arr[i];
-			}
-			if(arr[i] > max) {
-				max = arr[i];
-			}
-		}
 		
-		System.out.println("max : " + max + " min : " + min);
+		
 	}
 
 }

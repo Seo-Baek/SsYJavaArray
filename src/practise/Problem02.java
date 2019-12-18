@@ -32,7 +32,7 @@ public class Problem02 {
 			System.out.print(arr[i] + "\t");
 		}
 		
-		
+		sc.close();
 		
 	}
 }

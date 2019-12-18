@@ -9,24 +9,35 @@ public class Problem04 {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("학생 수를 입력하세요. : ");
 		
-		double[][] nArr = new double[sc.nextInt()][7];
+		double[][] nArr = new double[sc.nextInt()][3];
 		String[][] sArr = new String[nArr.length][2];
 		
+//		for(int i = 0; i < nArr.length; i++) {
+//			System.out.print("이름 입력 : ");
+//			sArr[i][0] = sc.next();
+//			System.out.print("국어점수 입력 : ");
+//			nArr[i][0] = sc.nextInt();
+//			System.out.print("영어점수 입력 : ");
+//			nArr[i][1] = sc.nextInt();
+//			System.out.print("수학점수 입력 : ");
+//			nArr[i][2] = sc.nextInt();
+//			nArr[i][3] = nArr[i][0] + nArr[i][1] + nArr[i][2];
+		
 		for(int i = 0; i < nArr.length; i++) {
+			int kor = 0, eng = 0, mat = 0;
 			System.out.print("이름 입력 : ");
 			sArr[i][0] = sc.next();
 			System.out.print("국어점수 입력 : ");
-			nArr[i][0] = sc.nextDouble();
+			kor = sc.nextInt();
 			System.out.print("영어점수 입력 : ");
-			nArr[i][1] = sc.nextDouble();
+			eng = sc.nextInt();
 			System.out.print("수학점수 입력 : ");
-			nArr[i][3] = sc.nextDouble();
-		}
-		for(int i = 0; i < nArr.length; i++) {
-			nArr[i][4] = nArr[i][1] + nArr[i][2] + nArr[i][3];
-			nArr[i][5] = nArr[i][4] / 4.0;
+			mat = sc.nextInt();
 			
-			switch((int)nArr[i][5] / 10) {
+			nArr[i][0] = kor + eng + mat;
+			nArr[i][1] = nArr[i][0] / 3.0;
+			
+			switch((int)nArr[i][1] / 10) {
 				case 10 : 
 				case 9 :
 					sArr[i][1] = "A학점";
@@ -44,39 +55,49 @@ public class Problem04 {
 					sArr[i][1] = "F학점";
 					
 			}
-			nArr[i][4] = nArr[i][6];
+			
 		}
 		
 		
-		int temp = 0;
-		for(int i = 0; i < nArr.length; i++) {
-			for(int j = i+1; j < nArr.length; j++) {
-				if(nArr[i][6] < nArr[j][6]) {
-					temp = (int)nArr[i][6];
-					nArr[i][6] = nArr[j][6];
-					nArr[j][6] = temp;
-				}
-			}	
-		}
+//		int temp = 0;
+//		for(int i = 0; i < nArr.length; i++) {
+//			for(int j = i+1; j < nArr.length; j++) {
+//				if(nArr[i][5] < nArr[j][5]) {
+//					temp = (int)nArr[i][5];
+//					nArr[i][5] = nArr[j][5];
+//					nArr[j][5] = temp;
+//				}
+//			}	
+//		}
+//		
+//		for(int i = 0; i < nArr.length; i++) {
+//			for(int j = 0; j < nArr.length; j++) {
+//				if(nArr[i][3] == nArr[j][5]) {
+//					nArr[i][6] = (j+1);
+//			}
+//			
+//			}
+//			
+//		}
 		
 		for(int i = 0; i < nArr.length; i++) {
+			nArr[i][2] = 1;
 			for(int j = 0; j < nArr.length; j++) {
-				if(nArr[i][4] == nArr[j][6]) {
-					nArr[i][7] = (j+1);
+				if(nArr[i][0] < nArr[j][0]) {
+					nArr[i][2]++;
+				}
 			}
 			
-			}
-			
-		}
 		
+		}
 
 		for(int i = 0; i < nArr.length; i++) {
 			System.out.println(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
 			System.out.print("이름 : " + sArr[i][0] + "\t");
-			System.out.print("총점 : " + (int)nArr[i][3] + "점" + "\t");
-			System.out.printf("평균 : %.2f점\t", nArr[i][4]);
+			System.out.printf("총점 : " + (int)nArr[i][0] + "점" + "\t");
+			System.out.printf("평균 : %.2f점\t", nArr[i][1]);
 			System.out.print("학점 : " + sArr[i][1] + "\t");
-			System.out.println("순위 : " + (int)nArr[i][6] + "위");
+			System.out.println("순위 : " + (int)nArr[i][2] + "등");
 		}
 		
 	
